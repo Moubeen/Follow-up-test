@@ -18,28 +18,51 @@ if(!empty($_POST))
 {
     $to = "ighoyota@tlu.ee";
     $subject = "Conference Registration";
-    $message = 'User Name : ' . $_POST["Username"] . '<br> Email : ' . $_POST["email"]  . '<br>Phone Number : ' . $_POST["phonenumber"]  . '<br>Address : ' . $_POST["address"]  . '<br>City : ' . $_POST["city"]  . '<br>State : ' . $_POST["state"]  . '<br>Country : ' . $_POST["country"]  ;
+    $message = 'User Name : ' . $_POST["Username"] . '<br> Email : ' . $_POST["email"]  . '<br>Phone Number : ' . $_POST["phonenumber"]  . '<br>Address : ' . $_POST["address"]  . '<br>City : ' . $_POST["city"]  . '<br>State : ' . $_POST["state"]  . '<br>Country : ' . $_POST["country"];
+    $sendMail =  mail($to,$subject,$message);
+    if($sendMail)
+    {
+        ?>
+        <div class="main-w3layouts wrapper">
+            <h1 class="thanks">Thankyou For Registration For Conference.</h1>
+    
+            <ul class="animated-bubbles">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <?php
+    }
+    else
+    {
+        ?>
+<div class="main-w3layouts wrapper">
+            <h1 class="thanks">There is a problem sending your form</h1>
+    
+            <ul class="animated-bubbles">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <?php
+    }
 
-    mail($to,$subject,$message);
-
-    ?>
-    <div class="main-w3layouts wrapper">
-		<h1 class="thanks">Thankyou For Registration For Conference.</h1>
-
-		<ul class="animated-bubbles">
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-		</ul>
-	</div>
-    <?php
 }
 
 
